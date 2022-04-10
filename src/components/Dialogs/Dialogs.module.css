@@ -1,0 +1,10 @@
+.item{
+    display: flex;
+}
+p{
+   font-size : 30px;
+   padding: 0 15px;
+}
+.Ppl{
+    display: flex;
+}

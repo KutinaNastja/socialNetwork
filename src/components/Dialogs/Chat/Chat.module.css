@@ -1,0 +1,17 @@
+.item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.item {
+  display: flex;
+  align-items: center;
+  padding: 15px 15px;
+  gap: 15px;
+}
+.chat {
+  border-left-color: #000000;
+  border-left-width: 2px;
+  border-left-style: solid;
+  width: 200px;
+}

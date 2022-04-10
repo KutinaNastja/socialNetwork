@@ -1,0 +1,17 @@
+.item {
+  color: rgb(52, 89, 101);
+}
+.ppl {
+  display: flex;
+  justify-content: space-around;
+}
+.ppl img {
+  width: 100%;
+}
+.face img {
+  width: 150px;
+  padding: 30px;
+}
+.name {
+  display: flex;
+}
