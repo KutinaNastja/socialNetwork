@@ -4,11 +4,11 @@ import Ppl from "./Ppl/Ppl";
 import Chat from "./Chat/Chat";
 
 const Dialogs = (props) => {
-  const NewPplData = props.ppl.map((el, i) => (
+  const NewPplData = props.state.ppl.map((el, i) => (
     <Ppl key={i} name={el.name} id={el.id} />
   ));
 
-  const NewChatData = props.chat.map((el, i) => (
+  const NewChatData = props.state.chat.map((el, i) => (
     <Chat key={i} messages={el.messages} img={el.img} />
   ));
 
