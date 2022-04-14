@@ -4,7 +4,7 @@ import ppl from "../../ppl.png";
 import Personal from "./Persinal/Personal";
 import MyPost from "./MyPost/MyPost";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div>
       <div className={s.ppl}>
@@ -22,7 +22,7 @@ const Profile = () => {
           <Personal />
         </div>
       </div>
-      <MyPost />
+      <MyPost posts={props.posts} />
     </div>
   );
 };
