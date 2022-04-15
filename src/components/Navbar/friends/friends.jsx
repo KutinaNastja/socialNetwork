@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from "./Ppl.module.css";
+import s from "./friends.module.css";
 
-let Ppl = (props) => {
+export let Friends = (props) => {
   let path = "/dialogs/" + props.id;
   return (
     <div className={s.item}>
@@ -17,4 +17,3 @@ let Ppl = (props) => {
     </div>
   );
 };
-export default Ppl;

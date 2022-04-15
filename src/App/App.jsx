@@ -13,7 +13,7 @@ const App = (props) => {
       <div className={s.appWrapper}>
         <Header />
         <div className={s.item}>
-          <Navbar />
+          <Navbar state={props.state.dialogsPage}/>
           <div className={s.content}>
             <Routes>
               <Route

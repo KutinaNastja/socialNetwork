@@ -19,11 +19,31 @@ export const state = {
   },
   dialogsPage: {
     ppl: [
-      { id: 1, name: "Tom" },
-      { id: 2, name: "Valera" },
-      { id: 3, name: "Sveta" },
-      { id: 4, name: "Dmitry" },
-      { id: 5, name: "Viktor" },
+      {
+        id: 1,
+        name: "Tom",
+        img: "https://v1.popcornnews.ru/k2/news/canvas/1200/upload/news/163495587791.jpg",
+      },
+      {
+        id: 4,
+        name: "Saoirse",
+        img: "https://m.buro247.ua/images/2018/09/saoirse-ronan-beauty-secrets-2.jpg",
+      },
+      {
+        id: 2,
+        name: "Timothée",
+        img: "https://i.pinimg.com/550x/4e/ff/93/4eff9351091a6fe866b0752d3966e691.jpg",
+      },
+      {
+        id: 5,
+        name: "Sydney",
+        img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1351772229.jpg?crop=0.668xw:1.00xh;0.207xw,0&resize=640:*",
+      },
+      {
+        id: 3,
+        name: "Jacob",
+        img: "https://www.famousbirthdays.com/headshots/jacob-elordi-2.jpg",
+      },
     ],
     chat: [
       {
