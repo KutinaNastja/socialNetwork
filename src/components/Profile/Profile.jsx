@@ -22,7 +22,12 @@ const Profile = (props) => {
           <Personal />
         </div>
       </div>
-      <MyPost posts={props.state.posts} />
+      <MyPost
+        posts={props.state.posts}
+        addPost={props.addPost}
+        newPostText={props.state.newPostText}
+        updateNewPostText={props.updateNewPostText}
+      />
     </div>
   );
 };

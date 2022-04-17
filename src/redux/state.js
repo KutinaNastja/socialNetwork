@@ -1,3 +1,7 @@
+let renderEntireTree = () => {
+  console.log("State Changed");
+};
+
 export const state = {
   profilePage: {
     posts: [
@@ -16,6 +20,7 @@ export const state = {
           "https://i.pinimg.com/550x/4e/ff/93/4eff9351091a6fe866b0752d3966e691.jpg",
       },
     ],
+    newPostText: "New Post",
   },
   dialogsPage: {
     ppl: [
@@ -62,5 +67,41 @@ export const state = {
         img: "https://i.pinimg.com/550x/4e/ff/93/4eff9351091a6fe866b0752d3966e691.jpg",
       },
     ],
+    newMessageText: "New Message",
   },
+};
+export let addPost = () => {
+  let newPost = {
+    id: 5,
+    message: state.profilePage.newPostText,
+    likesCount: 10,
+    author: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
+  };
+  state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = "";
+  renderEntireTree(state);
+};
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+
+  renderEntireTree(state);
+};
+export let addMyMessage = () => {
+  let newMessage = {
+    id: 4,
+    messages: state.dialogsPage.newMessageText,
+    img: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
+  };
+  state.dialogsPage.chat.push(newMessage);
+  state.dialogsPage.newMessageText = "";
+  renderEntireTree(state);
+};
+export let updateNewMessageText = (newText) => {
+  state.dialogsPage.newMessageText = newText;
+
+  renderEntireTree(state);
+};
+
+export const subscribe = (observer) => {
+  renderEntireTree = observer;
 };

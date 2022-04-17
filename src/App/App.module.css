@@ -1,12 +1,12 @@
 .appWrapper {
   display: flex;
-  justify-content: center;
+
   flex-direction: column;
   gap: 10px;
   width: 100%;
   align-items: center;
 }
-.item{
+.item {
   display: flex;
   gap: 15px;
   width: 85%;

@@ -1,18 +1,18 @@
 .img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin: 5px;
-  }
-  .item {
-    display: flex;
-    padding: 7px 3px;
-    align-items: center;
-    height: 80px;
-    text-decoration: none;
-    flex-direction: column;
-  }
-  .item a {
-    text-decoration: none;
-    color: #000000;
-  }
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 5px;
+}
+.item {
+  display: flex;
+  padding: 7px 3px;
+  align-items: center;
+  height: 80px;
+  text-decoration: none;
+  flex-direction: column;
+}
+.item a {
+  text-decoration: none;
+  color: #000000;
+}

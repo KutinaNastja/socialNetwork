@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Ppl from "./Ppl/Ppl";
 import Chat from "./Chat/Chat";
+import { MyMessage } from "./Chat/MyMessage/MyMessage";
 
 const Dialogs = (props) => {
   const NewPplData = props.state.ppl.map((el, i) => (
@@ -16,8 +17,11 @@ const Dialogs = (props) => {
     <div>
       <p>Dialogs</p>
       <div className={s.item}>
-        <div className="Ppl">{NewPplData}</div>
-        <div className={s.chat}>{NewChatData}</div>
+        <div className={s.Ppl}>{NewPplData}</div>
+        <div className={s.chat}>
+          {NewChatData}
+          <MyMessage addMyMessage={props.addMyMessage} state={props.state} updateNewMessageText={props.updateNewMessageText}/>
+        </div>
       </div>
     </div>
   );
