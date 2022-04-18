@@ -1,16 +1,10 @@
 import "./index.css";
-import { state, subscribe } from "./redux/state";
+import {store } from "./redux/state";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App/App";
 import reportWebVitals from "./reportWebVitals";
-import {
-  addMyMessage,
-  addPost,
-  updateNewMessageText,
-  updateNewPostText,
-} from "./redux/state";
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
@@ -19,10 +13,10 @@ export const renderEntireTree = (state) => {
   root.render(
     <App
       state={state}
-      addPost={addPost}
-      addMyMessage={addMyMessage}
-      updateNewPostText={updateNewPostText}
-      updateNewMessageText={updateNewMessageText}
+      addPost={store.addPost.bind(store)}
+      addMyMessage={store.addMyMessage.bind(store)}
+      updateNewPostText={store.updateNewPostText.bind(store)}
+      updateNewMessageText={store.updateNewMessageText.bind(store)}
     />
   );
 };
@@ -31,5 +25,5 @@ export const renderEntireTree = (state) => {
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-renderEntireTree(state);
-subscribe(renderEntireTree);
+renderEntireTree(store.getState());
+store.subscribe(renderEntireTree);
