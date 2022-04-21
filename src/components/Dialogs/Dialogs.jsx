@@ -3,6 +3,7 @@ import s from "./Dialogs.module.css";
 import Ppl from "./Ppl/Ppl";
 import Chat from "./Chat/Chat";
 import { MyMessage } from "./Chat/MyMessage/MyMessage";
+import { Route } from "react-router-dom";
 
 const Dialogs = (props) => {
   const NewPplData = props.state.ppl.map((el, i) => (
@@ -20,10 +21,11 @@ const Dialogs = (props) => {
         <div className={s.Ppl}>{NewPplData}</div>
         <div className={s.chat}>
           {NewChatData}
-          <MyMessage addMyMessage={props.addMyMessage} state={props.state} updateNewMessageText={props.updateNewMessageText}/>
+          <MyMessage state={props.state} dispatch={props.dispatch} />
         </div>
       </div>
     </div>
   );
 };
+
 export default Dialogs;

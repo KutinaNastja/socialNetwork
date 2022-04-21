@@ -1,3 +1,8 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_MY_MESSAGE = "ADD-MY-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-POST-TEXT";
+
 export let store = {
   _state: {
     profilePage: {
@@ -67,44 +72,54 @@ export let store = {
       newMessageText: "New Message",
     },
   },
-  getState(){
-    return this._state
-  },
   _callSubscriber() {
     console.log("this Changed");
-  },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 10,
-      author: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-
-    this._callSubscriber(this._state);
-  },
-  addMyMessage() {
-    let newMessage = {
-      id: 4,
-      messages: this._state.dialogsPage.newMessageText,
-      img: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
-    };
-    this._state.dialogsPage.chat.push(newMessage);
-    this._state.dialogsPage.newMessageText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewMessageText(newText) {
-    this._state.dialogsPage.newMessageText = newText;
-
-    this._callSubscriber(this._state);
   },
   subscribe(observer) {
     this._callSubscriber = observer;
   },
+  getState() {
+    return this._state;
+  },
+
+  dispatch(action) {
+    if (action.type === ADD_POST) {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likesCount: 10,
+        author: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action.type === ADD_MY_MESSAGE) {
+      let newMessage = {
+        id: 4,
+        messages: this._state.dialogsPage.newMessageText,
+        img: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
+      };
+      this._state.dialogsPage.chat.push(newMessage);
+      this._state.dialogsPage.newMessageText = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+      this._state.dialogsPage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
+    }
+  },
 };
+
+export const addPostActionCreator = () => ({ type: ADD_POST }); 
+export const updateNewPostTextActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: text,
+});
+
+export const addMyMessageActionCreator = () => ({ type: ADD_MY_MESSAGE });
+export const updateNewMessageTextActionCreator = (text) => ({
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  newText: text,
+});
