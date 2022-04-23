@@ -2,8 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Ppl from "./Ppl/Ppl";
 import Chat from "./Chat/Chat";
-import { MyMessage } from "./Chat/MyMessage/MyMessage";
-import { Route } from "react-router-dom";
+import { MyMessageContainer } from "./Chat/MyMessage/MyMessageContainer";
 
 const Dialogs = (props) => {
   const NewPplData = props.state.ppl.map((el, i) => (
@@ -21,7 +20,7 @@ const Dialogs = (props) => {
         <div className={s.Ppl}>{NewPplData}</div>
         <div className={s.chat}>
           {NewChatData}
-          <MyMessage state={props.state} dispatch={props.dispatch} />
+          <MyMessageContainer store={props.store}  />
         </div>
       </div>
     </div>

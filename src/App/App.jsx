@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./App.module.css";
-
 import Profile from "../components/Profile/Profile";
 import Header from "../components/Header/Header";
 import Navbar from "../components/Navbar/Navbar";
@@ -18,20 +17,15 @@ const App = (props) => {
             <Routes>
               <Route
                 path="/profile"
-                element={
-                  <Profile
-                    state={props.state.profilePage}
-                    dispatch={props.dispatch}
-                  />
-                }
+                element={<Profile store={props.store} />}
               />
 
-              <Route 
+              <Route
                 path="/dialogs"
                 element={
                   <Dialogs
                     state={props.state.dialogsPage}
-                    dispatch={props.dispatch}
+                    store={props.store}
                   />
                 }
               />

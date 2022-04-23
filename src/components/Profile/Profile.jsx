@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Profile.module.css";
 import ppl from "../../ppl.png";
 import Personal from "./Persinal/Personal";
-import MyPost from "./MyPost/MyPost";
+import { MyPostContainer } from "./MyPost/MyPostContainer";
 
 const Profile = (props) => {
   return (
@@ -10,7 +10,6 @@ const Profile = (props) => {
       <div className={s.ppl}>
         <img src={ppl} alt="ppl" />
       </div>
-
       <div className={s.name}>
         <div className={s.face}>
           <img
@@ -22,11 +21,7 @@ const Profile = (props) => {
           <Personal />
         </div>
       </div>
-      <MyPost
-        posts={props.state.posts}
-        dispatch={props.dispatch}
-        newPostText={props.state.newPostText}
-      />
+      <MyPostContainer store={props.store}/>
     </div>
   );
 };
