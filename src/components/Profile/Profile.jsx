@@ -4,7 +4,7 @@ import ppl from "../../ppl.png";
 import Personal from "./Persinal/Personal";
 import { MyPostContainer } from "./MyPost/MyPostContainer";
 
-const Profile = (props) => {
+const Profile = () => {
   return (
     <div>
       <div className={s.ppl}>
@@ -21,7 +21,7 @@ const Profile = (props) => {
           <Personal />
         </div>
       </div>
-      <MyPostContainer store={props.store}/>
+      <MyPostContainer />
     </div>
   );
 };

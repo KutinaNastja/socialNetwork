@@ -5,11 +5,11 @@ import Chat from "./Chat/Chat";
 import { MyMessageContainer } from "./Chat/MyMessage/MyMessageContainer";
 
 const Dialogs = (props) => {
-  const NewPplData = props.state.ppl.map((el, i) => (
+  const NewPplData = props.posts.ppl.map((el, i) => (
     <Ppl key={i} name={el.name} img={el.img} id={el.id} />
   ));
 
-  const NewChatData = props.state.chat.map((el, i) => (
+  const NewChatData = props.posts.chat.map((el, i) => (
     <Chat key={i} messages={el.messages} img={el.img} />
   ));
 
@@ -20,7 +20,7 @@ const Dialogs = (props) => {
         <div className={s.Ppl}>{NewPplData}</div>
         <div className={s.chat}>
           {NewChatData}
-          <MyMessageContainer store={props.store}  />
+          <MyMessageContainer />
         </div>
       </div>
     </div>
