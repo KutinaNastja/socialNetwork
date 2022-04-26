@@ -9,22 +9,22 @@ let initialState = {
       img: "https://v1.popcornnews.ru/k2/news/canvas/1200/upload/news/163495587791.jpg",
     },
     {
-      id: 4,
+      id: 2,
       name: "Saoirse",
       img: "https://m.buro247.ua/images/2018/09/saoirse-ronan-beauty-secrets-2.jpg",
     },
     {
-      id: 2,
+      id: 3,
       name: "Timothée",
       img: "https://i.pinimg.com/550x/4e/ff/93/4eff9351091a6fe866b0752d3966e691.jpg",
     },
     {
-      id: 5,
+      id: 4,
       name: "Sydney",
       img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1351772229.jpg?crop=0.668xw:1.00xh;0.207xw,0&resize=640:*",
     },
     {
-      id: 3,
+      id: 5,
       name: "Jacob",
       img: "https://www.famousbirthdays.com/headshots/jacob-elordi-2.jpg",
     },
@@ -51,18 +51,21 @@ let initialState = {
 
 export const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MY_MESSAGE:
+    case ADD_MY_MESSAGE: {
       let newMessage = {
         id: 4,
         messages: state.newMessageText,
         img: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
       };
-      state.chat.push(newMessage);
-      state.newMessageText = "";
-      return state;
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newText;
-      return state;
+      return {
+        ...state,
+        chat: [...state.chat, newMessage],
+        newMessageText: "",
+      };
+    }
+    case UPDATE_NEW_MESSAGE_TEXT: {
+      return { ...state, newMessageText: action.newText };
+    }
     default:
       return state;
   }

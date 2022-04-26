@@ -3,10 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Friends } from "./friends/friends";
 import s from "./Navbar.module.css";
 
-const Navbar = (props) => {
-
-  let state = props.dialogsPage.state.initialState;
-  const friends = state.ppl.map((el, i) => (
+export const Navbar = (props) => {
+  const friends = props.posts.ppl.map((el, i) => (
     <Friends key={i} name={el.name} img={el.img} id={el.id} />
   ));
   return (
@@ -45,4 +43,3 @@ const Navbar = (props) => {
     </nav>
   );
 };
-export default Navbar;

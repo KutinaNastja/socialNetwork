@@ -18,6 +18,7 @@ const Dialogs = (props) => {
       <p>Dialogs</p>
       <div className={s.item}>
         <div className={s.Ppl}>{NewPplData}</div>
+
         <div className={s.chat}>
           {NewChatData}
           <MyMessageContainer />

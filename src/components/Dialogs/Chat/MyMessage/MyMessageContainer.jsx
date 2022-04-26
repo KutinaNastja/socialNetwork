@@ -6,15 +6,15 @@ import {
 import { MyMessage } from "./MyMessage";
 
 const mapStateToProps = (state) => {
-  return { newMessageText: state.newMessageText };
+  return { newMessageText: state.dialogsPage.newMessageText };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     addMyMessage: () => {
-      addMyMessageActionCreator();
+      dispatch(addMyMessageActionCreator());
     },
-    newMessageText: (text) => {
+    updateNewMessageText: (text) => {
       dispatch(updateNewMessageTextActionCreator(text));
     },
   };
