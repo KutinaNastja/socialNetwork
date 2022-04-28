@@ -3,7 +3,7 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 
 let initialState = {
-  users: [  ],
+  users:[],
 };
 
 export const usersReducer = (state = initialState, action) => {
@@ -29,7 +29,7 @@ export const usersReducer = (state = initialState, action) => {
         }),
       };
     case SET_USERS: {
-      return { ...state, users: [...state.users, ...state.users] };
+      return { ...state, users: [...state.users, ...action.users] };
     }
     default:
       return state;

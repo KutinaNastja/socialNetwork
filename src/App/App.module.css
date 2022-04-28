@@ -1,18 +1,41 @@
 .appWrapper {
   display: flex;
-
   flex-direction: column;
   gap: 10px;
   width: 100%;
   align-items: center;
+  height: 100vh;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
 }
 .item {
   display: flex;
   gap: 15px;
   width: 85%;
+  height: 100vh;
 }
 .content {
   background-color: #faaca8;
   background-image: linear-gradient(19deg, #faaca8 0%, #ddd6f3 58%);
   width: 100%;
+  overflow-y: scroll;
+}
+.content::-webkit-scrollbar {
+  display: none;
+}
+button {
+  background-color: #ddd6f3;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+  border: none;
+  border-radius: 30px;
+  padding: 5px 15px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
+button:active {
+  transform: translateY(3px);
+}
+input {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
 }

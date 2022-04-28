@@ -8,6 +8,7 @@
   border-radius: 30px;
   padding: 5px 30px;
   text-decoration: none;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 }
 .item {
   text-decoration: none;
@@ -23,6 +24,8 @@
 }
 .friends {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
 }

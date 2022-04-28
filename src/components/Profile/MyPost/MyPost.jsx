@@ -24,7 +24,8 @@ export const MyPost = (props) => {
     <div>
       <div className={s.MyPost}>
         <span>My posts</span>
-        <textarea
+        <input
+        className={s.message}
           onChange={onPostChange}
           ref={newPostElement}
           value={props.newPostText}
