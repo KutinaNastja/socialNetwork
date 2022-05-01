@@ -13,7 +13,8 @@ export const Users = (props) => {
       <div className={s.pageNumber}>
         {pages.map((p) => {
           return (
-            <span key={p.id}
+            <span
+              key={p.id}
               className={props.currentPage === p && s.selectedPage}
               onClick={(e) => {
                 props.onPageChanged(p);
