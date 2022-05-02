@@ -3,8 +3,13 @@ import s from "./Profile.module.css";
 import ppl from "../../ppl.png";
 import Personal from "./Persinal/Personal";
 import { MyPostContainer } from "./MyPost/MyPostContainer";
+import { Preloader } from "../common/Preloader/Preloader";
+import userPhoto from "../../assets/images/human-bones.png";
 
-const Profile = () => {
+export const Profile = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
   return (
     <div>
       <div className={s.ppl}>
@@ -13,16 +18,19 @@ const Profile = () => {
       <div className={s.name}>
         <div className={s.face}>
           <img
-            src="https://cdn1.intermedia.ru/img/news_x400/363527.jpg"
+            src={
+              props.profile.photos.large != null
+                ? props.profile.photos.large
+                : userPhoto
+            }
             alt="Zendaya"
           />
         </div>
         <div>
-          <Personal />
+          <Personal profile={props.profile} />
         </div>
       </div>
       <MyPostContainer />
     </div>
   );
 };
-export default Profile;
