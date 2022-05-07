@@ -6,6 +6,7 @@ import { MyPostContainer } from "./MyPost/MyPostContainer";
 import { Preloader } from "../common/Preloader/Preloader";
 import userPhoto from "../../assets/images/human-bones.png";
 
+
 export const Profile = (props) => {
   if (!props.profile) {
     return <Preloader />;
