@@ -6,7 +6,6 @@ import { MyPostContainer } from "./MyPost/MyPostContainer";
 import { Preloader } from "../common/Preloader/Preloader";
 import userPhoto from "../../assets/images/human-bones.png";
 
-
 export const Profile = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -24,11 +23,16 @@ export const Profile = (props) => {
                 ? props.profile.photos.large
                 : userPhoto
             }
-            alt="Zendaya"
+            alt=""
           />
         </div>
+
         <div>
-          <Personal profile={props.profile} />
+          <Personal
+            profile={props.profile}
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
         </div>
       </div>
       <MyPostContainer />
