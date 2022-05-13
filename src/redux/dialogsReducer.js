@@ -1,5 +1,4 @@
 const ADD_MY_MESSAGE = "ADD-MY-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-POST-TEXT";
 
 let initialState = {
   ppl: [
@@ -46,7 +45,6 @@ let initialState = {
       img: "https://i.pinimg.com/550x/4e/ff/93/4eff9351091a6fe866b0752d3966e691.jpg",
     },
   ],
-  newMessageText: "New Message",
 };
 
 export const dialogsReducer = (state = initialState, action) => {
@@ -54,24 +52,17 @@ export const dialogsReducer = (state = initialState, action) => {
     case ADD_MY_MESSAGE: {
       let newMessage = {
         id: 4,
-        messages: state.newMessageText,
+        messages: action.message,
         img: "https://cdn1.intermedia.ru/img/news_x400/363527.jpg",
       };
       return {
         ...state,
         chat: [...state.chat, newMessage],
-        newMessageText: "",
+        message: "",
       };
-    }
-    case UPDATE_NEW_MESSAGE_TEXT: {
-      return { ...state, newMessageText: action.newText };
     }
     default:
       return state;
   }
 };
-export const addMyMessage = () => ({ type: ADD_MY_MESSAGE });
-export const updateNewMessageText = (text) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newText: text,
-});
+export const addMyMessage = (message) => ({ type: ADD_MY_MESSAGE, message });

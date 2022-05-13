@@ -1,8 +1,5 @@
 import { connect } from "react-redux";
-import {
-  addMyMessage,
-  updateNewMessageText,
-} from "../../../../redux/dialogsReducer";
+import { addMyMessage } from "../../../../redux/dialogsReducer";
 import { MyMessage } from "./MyMessage";
 
 const mapStateToProps = (state) => {
@@ -11,5 +8,4 @@ const mapStateToProps = (state) => {
 
 export const MyMessageContainer = connect(mapStateToProps, {
   addMyMessage,
-  updateNewMessageText,
 })(MyMessage);

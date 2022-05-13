@@ -1,25 +1,38 @@
 import React from "react";
+import { reduxForm } from "redux-form";
+import { Field } from "redux-form";
 import s from "./MyMessage.module.css";
 
 export const MyMessage = (props) => {
-  const newMyMessageElement = React.createRef();
+  const addNewMessage = (values) => {
+    props.addMyMessage(values.message);
+  };
 
-  const addMyMessage = () => {
-    props.addMyMessage();
-  };
-  const onMessageChange = () => {
-    let text = newMyMessageElement.current.value;
-    props.updateNewMessageText(text);
-  };
   return (
     <div className={s.addMyMessage}>
-      <input
-        onChange={onMessageChange}
-        className={s.message}
-        ref={newMyMessageElement}
-        value={props.newMessageText}
-      />
-      <button onClick={addMyMessage}>Send</button>
+      <MessageReduxForm onSubmit={addNewMessage} />
     </div>
   );
 };
+
+const MessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit}>
+      <div>
+        <Field
+          className={s.message}
+          placeholder={"Message"}
+          name={"message"}
+          component={"input"}
+        />
+      </div>
+      <div>
+        <button>Send</button>
+      </div>
+    </form>
+  );
+};
+
+const MessageReduxForm = reduxForm({
+  form: "message",
+})(MessageForm);
