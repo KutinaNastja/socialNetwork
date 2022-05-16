@@ -1,7 +1,10 @@
 import React from "react";
 import { reduxForm } from "redux-form";
 import { Field } from "redux-form";
+import { maxLengthCreator, required } from "../../../../utils/validators/validators";
+import { Input } from "../../../common/FormsControls/FormsControls";
 import s from "./MyMessage.module.css";
+
 
 export const MyMessage = (props) => {
   const addNewMessage = (values) => {
@@ -15,15 +18,17 @@ export const MyMessage = (props) => {
   );
 };
 
+const maxLength30 = maxLengthCreator(30);
+
 const MessageForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          className={s.message}
           placeholder={"Message"}
           name={"message"}
-          component={"input"}
+          component={Input}
+          validate={[required, maxLength30]}
         />
       </div>
       <div>

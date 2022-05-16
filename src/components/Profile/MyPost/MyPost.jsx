@@ -1,8 +1,15 @@
 import React from "react";
 import { reduxForm } from "redux-form";
 import { Field } from "redux-form";
+import {
+  required,
+  maxLengthCreator,
+} from "../../../utils/validators/validators";
+import { Input } from "../../common/FormsControls/FormsControls";
 import s from "./MyPost.module.css";
 import Posts from "./Post/Post";
+
+const maxLength10 = maxLengthCreator(10);
 
 export const MyPost = (props) => {
   const addNewPost = (values) => {
@@ -33,10 +40,10 @@ const PostForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <div>
         <Field
-          className={s.message}
           placeholder={"My posts"}
-          name={"post"}
-          component={"input"}
+          name="post"
+          component={Input}
+          validate={[required, maxLength10]}
         />
       </div>
       <div>
