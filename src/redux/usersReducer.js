@@ -85,7 +85,7 @@ export const toggleFollowingInProgress = (isFetching, userId) => ({
   userId,
 });
 
-export const getUsers = (currentPage, pageSize) => {
+export function getUsers(currentPage, pageSize) {
   return (dispatch) => {
     dispatch(toggleIsFetching(true));
     userAPI.getUsers(currentPage, pageSize).then((data) => {
@@ -95,7 +95,7 @@ export const getUsers = (currentPage, pageSize) => {
       dispatch(setCurrentPage(currentPage));
     });
   };
-};
+}
 
 export const follow = (userId) => {
   return (dispatch) => {
