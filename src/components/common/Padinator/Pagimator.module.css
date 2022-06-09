@@ -1,0 +1,17 @@
+.pageNumber {
+    display: flex;
+    gap: 7px;
+    overflow-y: auto;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0px 0px 19px 4px rgb(0 0 0 / 12%) inset;
+    border-radius: 30px;
+    margin: 10px;
+  }
+  .pageNumber::-webkit-scrollbar {
+    display: none;
+  }
+  .selectedPage {
+    font-weight: bold;
+    padding: 0 7px;
+  }
